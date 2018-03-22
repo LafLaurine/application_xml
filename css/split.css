@@ -1,0 +1,120 @@
+@media (min-width: 500px) {
+	.col-sm-6 {
+		width: 50%;
+	}
+
+	html,
+	body {
+		overflow: auto;
+	}
+}
+html,
+body {
+	height: 100%;
+	min-height: 18em;
+	font-family: 'Lato', sans-serif;
+	
+}
+
+.frontend-side {
+	background-color:lightblue;
+}
+
+.uiux-side {
+	background-color:#3b3f40;
+	
+}
+
+.split-pane {
+	padding-top: 1em;
+	overflow:hidden;
+    float: left;
+	background-size: cover;
+	background-repeat: no-repeat;
+	background-position: center center;
+	height: 50%;
+	min-height: 9em;
+}
+@media (min-width: 500px) {
+	.split-pane {
+		padding-top: 2em;
+		height: 100%;
+	}
+	html,
+	body {
+		overflow: auto;
+	}
+}
+.split-pane > div {
+	position: relative;
+	top: 50%;
+	-webkit-transform: translateY(-50%);
+	-ms-transform: translateY(-50%);
+	transform: translateY(-50%);
+	text-align: center;
+}
+.split-pane > div .text-content {
+	line-height: 1.6em;
+	margin-bottom: 3em;
+	
+}
+.split-pane > div .text-content .big {
+	line-height: 1em;
+    font-size: 3.8em;
+    color: #000000;
+    text-align: center;
+}
+.split-pane > div img {
+	height: 1.3em;
+}
+@media (max-width: 500px) {
+	.split-pane > div img {
+		display: none;
+	}
+	html,
+	body {
+		overflow: auto;
+	}
+
+	
+}
+.split-pane button,
+.split-pane a.button {
+	font-weight: 800;
+	background: none;
+	border: 1px solid white;
+	-moz-border-radius: 5px;
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	width: 16em;
+	padding: 0.7em;
+	font-size: 1.2em;
+	-moz-transition: all 0.2s ease-out;
+	-o-transition: all 0.2s ease-out;
+	-webkit-transition: all 0.2s ease-out;
+	transition: all 0.2s ease-out;
+	text-decoration: none;
+	color: white;
+	display: inline-block;
+	cursor: pointer;
+}
+.split-pane button:hover,
+.split-pane a.button:hover {
+	text-decoration: none;
+	background-color: white;
+	border-color: white;
+	cursor: pointer;
+}
+.uiux-side.split-pane button:hover,
+.split-pane a.button:hover {
+	color: violet;
+}
+.frontend-side.split-pane button:hover,
+.split-pane a.button:hover {
+	color: #3080D0;
+}
+
+#artc
+{
+	margin-top:8%;
+}

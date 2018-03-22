@@ -1,0 +1,370 @@
+* {
+    text-decoration: none;
+    font-family: raleway;
+}
+
+html,
+body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+modal {
+    display: none;
+    /* Hidden by default */
+    position: fixed;
+    /* Stay in place */
+    z-index: 1;
+    /* Sit on top */
+    padding-top: 100px;
+    /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    overflow: auto;
+    /* Enable scroll if needed */
+    background-color: rgb(0, 0, 0);
+    /* Fallback color */
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Black w/ opacity */
+}
+
+
+/* Modal Content */
+
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+}
+
+.close {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+
+/* DEBUT HEADER */
+
+.header {
+    background-color: white;
+    height: 120px;
+    width: 100%;
+    z-index: 99999;
+    position: fixed;
+    top: 0;
+    -webkit-box-shadow: 4px 3px 9px 3px rgba(0, 0, 0, 0.31);
+    -moz-box-shadow: 4px 3px 9px 3px rgba(0, 0, 0, 0.31);
+    box-shadow: 4px 3px 9px 3px rgba(0, 0, 0, 0.31);
+}
+
+.header .flex {
+    padding-right: 5%;
+    padding-left: 5%;
+    height: 100%;
+    line-height: 70px;
+}
+
+.connexion {
+    width: 100%;
+    height: 42%;
+    background: #3b3f40;
+    float: left;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.connexion div {
+    width: 10%;
+    height: 50%;
+    margin: 0 1%;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    border: solid white 1px;
+}
+
+span {
+    /* color: white; */
+}
+
+.logo {
+    margin: 10px 0;
+    width: 50px;
+    height: 50px;
+    background-image: url("../images/cvtec.png");
+    background-size: cover;
+    padding: 0;
+    float: left;
+}
+
+.nav {
+    float: right;
+}
+
+.nav a {
+    margin-right: 15px;
+    margin-left: 15px;
+}
+
+.hamburger {
+    display: none;
+}
+
+
+/* FIN HEADER */
+
+
+/* DEBUT BANNIERE */
+
+.banniere {
+    height: 100vh;
+    width: 100%;
+    background-image: url("../images/job.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.recherche {
+    width: 60%;
+    height: 22%;
+    background: rgba(255, 255, 255, 0.65);
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.recherche h1 {
+    text-align: center;
+}
+
+.input-recherche {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-bottom: 3%;
+}
+
+.input-recherche input:last-child:hover {
+    cursor: pointer;
+}
+
+input {
+    height: 30px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    border: solid rgb(114, 114, 114) 1px;
+    margin: 0;
+    padding: 0 5px;
+}
+
+
+/* FIN BANNIERE */
+
+
+/* DEBUT HOME */
+
+.home {
+    margin-top: 70px;
+    height: 100vh;
+    width: 100%;
+    position: relative;
+}
+
+.creer-compte {
+    width: 100%;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: flex-start;
+    -webkit-flex-wrap: wrap;
+    flex-wrap: wrap;
+}
+
+.creer-compte div {
+    width: 100%;
+    height: 100vh;
+    background: #3b3f40;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.creer-compte div h1,
+h5 {
+    text-align: center;
+    color: white;
+    height: 26%;
+    padding: 0;
+    margin: 0;
+}
+
+.creer-compte div div {
+    color: white;
+    height: 26%;
+    width: 100%;
+    float: left;
+}
+
+.creer-compte div div button {
+    background: #ffffff;
+    border: none;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+    width: 30%;
+    height: 100%;
+}
+
+.creer-compte div div button:hover {
+    cursor: pointer;
+}
+
+.creer-compte div:first-child {
+    background: #3b3f40;
+}
+
+.derniere-offre {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    padding: 10% 0;
+}
+
+.offre {
+    width: 26%;
+    height: 30%;
+    box-shadow: 2px 2px 10px 0px rgba(0, 0, 0, 0.3);
+}
+
+
+/* FIN HOME */
+
+
+/* DEBUT FOOTER */
+
+footer {
+    background: #3b3f40;
+    height: 70px;
+    margin: 0;
+}
+
+
+/* FIN FOOTER */
+
+.form {
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.377);
+    z-index: 9999999;
+}
+
+.close {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.form form {
+    display: flex;
+    flex-direction: column;
+    background: #028cca;
+    height: 50%;
+    width: 24%;
+    position: absolute;
+    justify-content: space-around;
+    align-items: center;
+    border-radius: 5px;
+    z-index: 1;
+}
+
+.form form input {
+    border: none;
+    width: 50%;
+}
+
+
+/* DEBUT MEDIA */
+
+@media (max-width: 750px) {
+    .creer-mon-compte {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .creer-espace-recruteur {
+        min-width: 100% !important;
+        width: 100% !important;
+    }
+    .flex {
+        padding-right: 0 !important;
+    }
+    .nav {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: forestgreen;
+        padding: 0 20px;
+        width: 100px;
+        margin-right: -140px;
+        margin-top: -70px;
+        transition: all 0.5s;
+        z-index: 99999;
+    }
+    .nav a {
+        margin: 0;
+    }
+    .logo {
+        z-index: 0 !important;
+        float: none;
+    }
+    .hamburger {
+        display: block;
+        margin-top: -60px;
+        width: 50px;
+        height: 50px;
+        background-color: lawngreen;
+        margin-right: 5%;
+        float: right;
+    }
+    .temp {
+        margin-right: 0;
+    }
+}
+
+
+/* FIN MEDIA */
