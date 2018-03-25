@@ -2,7 +2,9 @@
 
 <?php 
 header('Content-type: text/html; charset=UTF-8');
-session_start();
+if (session_status() == PHP_SESSION_NONE) {
+	session_start();
+ }
 require_once $_SERVER['DOCUMENT_ROOT']. '/application/inc/connexion.php';
 
 //Teste si l'utilisateur existe
@@ -47,14 +49,9 @@ if (isset($email_etu,$mdp_etu))
             //Teste si le mot de passe est associé avec le mail
             if ($result)
             {
-                
-                if (!session_id()) 
-                session_start();
-                
-                $_SESSION['email_etu'] = $email_etu;
-                $_SESSION['id_etu']= $result['id_etu'];
-                header("Location:../form_cv.php");
-                    
+                    $_SESSION['email_etu'] = $email_etu;
+                    $_SESSION['id_etu']= $result['id_etu'];
+                    header("Location:../form_cv.php");                    
             } else 
             {
                 header( 'Location: ../home_etu.php?action=fail');

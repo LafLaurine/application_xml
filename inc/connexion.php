@@ -1,5 +1,3 @@
-<!-- Fichier config de connexion à la base de données -->
-
 <?php
 
 function connectBd () {

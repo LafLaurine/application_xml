@@ -1,62 +1,5 @@
 <?php
 
-session_start();
-require "inc/bootstrap.php";
-$db = App::getDatabase();
-
-if(isset($_POST) && !empty($_POST['nom'])){
-
-  $db->query("INSERT INTO cv SET
-    nom_cv=?,
-    prenom_cv=?,
-    date_naiss_cv=?,
-    rue_cv =?,
-    ville_cv=?,
-    cp_cv=?,
-    email_cv=?,
-    telephone_cv=?,
-    portfolio_cv=?,
-    poste_cv=?,
-    type_contrat=?,
-    id_etudiant=?
-    ", [
-      $_POST['nom'],
-      $_POST['prenom'],
-      $_POST['date_naiss'],
-      $_POST['rue'],
-      $_POST['ville'],
-      $_POST['codePostal'],
-      $_POST['email'],
-      $_POST['telephone'],
-      $_POST['portfolio'],
-      $_POST['poste'],
-      $_POST['typeContrat'],
-      $_SESSION['id_etu']
-    ]);
-}
-
-$diplomes = $_POST['diplome'];
-$periodes = $_POST['periode'];
-$mentions = $_POST['mention'];
-$etablissements = $_POST['etablissement'];
-$villeFormas = $_POST['villeForma'];
-
-if(isset($_POST['diplome'])){
-
-foreach ($diplomes as $diplome) {
-  $db->query("INSERT INTO formations SET diplome=?", [$diplome]);
-}
-
-// $competences = $_POST['competence'];
-// $typeCompets = $_POST['typeCompet'];
-// $niveaux = $_POST['niveau'];
-// $titres = $_POST['titre'];
-// $entreprises = $_POST['entreprise'];
-// $localisations = $_POST['localisation'];
-
-
-}
-
 if (session_status() == PHP_SESSION_NONE) {
 	session_start();
   }
@@ -104,17 +47,13 @@ $(document).ready(function() {
             $(wrapper).append('<div><input type="text" name="activite[]"/><a href="#" class="remove_field">Supprimer</a></div>'); //add input box
         }
     });
-   
-    $(wrapper).on("click",".remove_field", function(e){ 
-        e.preventDefault(); $(this).parent('div').remove(); x--;
-    });
-	
+   	
 	$(addLangue).click(function(e){ 
         e.preventDefault();
         if(x < max_fields){ 
             x++; 
             $(wrapLangue).append('<div><input type="text" name="langue[]"/><a href="#" class="remove_field">Supprimer</a></div>');
-			$(wrapLangue).append('<input type="text" name="niveau[]" placeholder="niveau"/><a href="#" class="remove_field">Supprimer</a></div>');
+			$(wrapLangue).append('<input type="text" name="niveau_langue[]" placeholder="niveau"/><a href="#" class="remove_field">Supprimer</a></div>');
         }
     });
 	
@@ -126,23 +65,17 @@ $(document).ready(function() {
 			$(wrapExp).append('<input type="text" name="entreprise[]" placeholder="Nom de l\'entreprise"><br>');
 			$(wrapExp).append('<input type="text" name="localisation[]" placeholder="Localisation de l\'entreprise"/><br>'); 	
 			$(wrapExp).append('<label for="missions">Missions</label><br>');
-			$(wrapExp).append('<textarea name="mission[]"></textarea></div>'); 		
+			$(wrapExp).append('<textarea name="mission[]"></textarea><a href="#" class="remove_field">Supprimer</a></div>'); 		
         }
     });
-				
-			
-			
-			
-			
-	
-			
+							
 	$(addCompt).click(function(e){ 
         e.preventDefault();
         if(x < max_fields){ 
             x++; 
             $(wrapCompet).append('<div> <input type="text" name="competence[]" placeholder="Compétence"><br>');
 			$(wrapCompet).append('<input type="text" name="typeCompet[]" placeholder="Type de compétence"><br>');
-			$(wrapCompet).append('<input type="text" name="niveau[]" placeholder="Niveau compétence"><br></div>'); 	
+			$(wrapCompet).append('<input type="text" name="niveau[]" placeholder="Niveau compétence"><br><a href="#" class="remove_field">Supprimer</a></div>'); 	
         }
     });
 	
@@ -153,12 +86,28 @@ $(document).ready(function() {
             $(wrapFormation).append('<div> <input type="text" name="diplome[]" placeholder="diplome"><br>');
 			$(wrapFormation).append('<input type="text" name="periode[]" placeholder="periode"><br>');
 			$(wrapFormation).append('<input type="text" name="mention[]" placeholder="mention"><br>'); 	
-		$(wrapFormation).append('<input type="text" name="etablissement[]" placeholder="etablissement"><br>'); 	
-			$(wrapFormation).append('<input type="text" name="villeForma[]" placeholder="ville"><br></div>'); 	
+			$(wrapFormation).append('<input type="text" name="etablissement[]" placeholder="etablissement"><br>'); 	
+			$(wrapFormation).append('<input type="text" name="villeForma[]" placeholder="ville"><br><a href="#" class="remove_field">Supprimer</a></div>'); 	
         }
     });
   
     $(wrapper).on("click",".remove_field", function(e){ 
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    });
+
+	$(wrapLangue).on("click",".remove_field", function(e){ 
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    });
+
+	$(wrapExp).on("click",".remove_field", function(e){ 
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    });
+
+	$(wrapCompet).on("click",".remove_field", function(e){ 
+        e.preventDefault(); $(this).parent('div').remove(); x--;
+    });
+
+	$(wrapFormation).on("click",".remove_field", function(e){ 
         e.preventDefault(); $(this).parent('div').remove(); x--;
     });
   
@@ -178,7 +127,7 @@ $(document).ready(function() {
 				<input type="radio" name="typeContrat" value="CDD">CDD
 				<input type="radio" name="typeContrat" value="CDI">CDI
 				<input type="radio" name="typeContrat" value="stage">Stage</br></br>
-				<input type="text" name="typeContrat" placeholder="Durée du stage">
+				<input type="text" name="dureeContrat" placeholder="Durée du stage">
 			</div></br>
 
 			<div class="block">
@@ -242,7 +191,7 @@ $(document).ready(function() {
 			<button class="addLangue">Ajouter une langue</button>
 			<div class="langue">
 			<div><input type="text" name="langue[]" placeholder="langue">
-			<input type="text" name="niveau[]" placeholder="niveau"></div>
+			<input type="text" name="niveau_langue[]" placeholder="niveau"></div>
 			</div>
 			</div>
 			</div>
@@ -266,6 +215,8 @@ $(document).ready(function() {
 	    <?php
 		if(isset($_POST['submit'])){
 			include('./generate/cv_xml.php');
+			echo '<h2>Votre CV a bien été enregistré</h2>';
+			echo '<a href="./generate/cv.xml">Voir mon CV</a>';
 		}	
     ?>
 </body>

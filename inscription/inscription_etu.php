@@ -58,6 +58,8 @@ try
                     {
                         //Cookie
                         session_start();
+                        $_SESSION['email_etu'] = $email_etu;
+                        $_SESSION['id_etu']= $result['id_etu'];
                         setcookie('email_etu', $_POST['email_etu'], time() + 365*24*3600, null, null, false, true);
                         header( 'Location: ../home_etu.php?action=success');
                       

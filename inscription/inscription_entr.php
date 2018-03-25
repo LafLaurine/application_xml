@@ -57,6 +57,8 @@ try
                     {
                         //Cookie
                         session_start();
+                        $_SESSION['email_entr'] = $email_entr;
+                        $_SESSION['id_entr']= $result['id_entr'];
                         setcookie('email_entr', $_POST['email_entr'], time() + 365*24*3600, null, null, false, true);
                         header( 'Location: ../home_entr.php?action=success');
                 

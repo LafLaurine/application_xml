@@ -47,15 +47,16 @@ if (isset($email_entr,$mdp_entr))
             if ($result)
             {
                 
-                if (!session_id()) 
-                session_start();
-                $_SESSION['email_entr'] = $email_entr;
-                $_SESSION['id_entr']= $result['id_entr'];
-                header('Location:../form_appelOffre.php');
+                if (!session_id()){
+                    $_SESSION['email_entr'] = $email_entr;
+                    $_SESSION['id_entr']= $result['id_entr'];
+                    header('Location:../form_appelOffre.php');
+                }
+               
                     
             } else 
             {
-                echo("Fail");
+                header( 'Location: ../home_entr.php?action=fail');
             }
             
         } 

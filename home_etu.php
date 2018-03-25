@@ -23,21 +23,14 @@ session_start();
 <body>
     <!--        DEBUT HEADER-->
     <div class="header">
-        <div class="connexion">
-            <div class="mon-compte">
-                <span>Mon compte</span>
-            </div>
-    
-        </div>
+        
         <div class="flex">
             <div class="logo">
             </div>
             <div class="hamburger">
             </div>
             <div class="nav">
-                <a href="#banniere" class="menu-item">STAGE</a>
-                <a href="#apropos" class="menu-item">ALTERNANCE</a>
-                <a href="#skills" class="menu-item">EMPLOI</a>
+              
                 <?php     
             if (!isset($_SESSION['email_etu'])) {?>
            
@@ -73,6 +66,15 @@ session_start();
             <?php } 
             
             else {?>
+                    <div class="connexion">
+                    <div class="mon-compte">
+                        <span>Mon compte</span>
+                    </div>
+            
+                </div>
+                  <a href="#banniere" class="menu-item">STAGE</a>
+                <a href="#apropos" class="menu-item">ALTERNANCE</a>
+                <a href="#skills" class="menu-item">EMPLOI</a>
                 <a href="./login/logout_etu.php" class="menu-item">DÉCONNEXION</a>
                 <a href="./form_cv.php" class="menu-item">CV</a>
             <?php }?>
